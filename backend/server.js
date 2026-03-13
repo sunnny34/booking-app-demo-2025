@@ -392,5 +392,170 @@ app.get('/api/health', (req, res) => {
     time:   new Date().toISOString()
   });
 });
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    uptime: process.uptime(),
+    time: new Date().toISOString()
+  });
+});
+
+
+// =============================
+// CheckIn API
+// =============================
+app.post('/api/checkin', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Check-in completed",
+    bookingId: bookingId
+  });
+});
+
+
+// =============================
+// CheckOut API
+// =============================
+app.post('/api/checkout', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Check-out completed",
+    bookingId: bookingId
+  });
+});
+
+
+// =============================
+// ConfirmCheckOut API
+// =============================
+app.post('/api/confirmCheckout', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Checkout confirmed",
+    bookingId: bookingId
+  });
+});
+
+/**
+ * @swagger
+ * /api/checkin:
+ *   post:
+ *     summary: Check in booking
+ *     tags: [Booking]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               bookingId:
+ *                 type: string
+ *                 example: B001
+ *     responses:
+ *       200:
+ *         description: Check-in completed
+ */
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.post('/api/checkin', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Check-in completed",
+    bookingId: bookingId
+  });
+});
+/**
+ * @swagger
+ * /api/checkout:
+ *   post:
+ *     summary: Check out booking
+ *     tags: [Booking]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               bookingId:
+ *                 type: string
+ *                 example: B001
+ *     responses:
+ *       200:
+ *         description: Check-out completed
+ */app.post('/api/checkout', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Check-out completed",
+    bookingId: bookingId
+  });
+});
+/**
+ * @swagger
+ * /api/confirmCheckout:
+ *   post:
+ *     summary: Confirm checkout
+ *     tags: [Booking]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               bookingId:
+ *                 type: string
+ *                 example: B001
+ *     responses:
+ *       200:
+ *         description: Checkout confirmed
+ */
+app.post('/api/confirmCheckout', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Checkout confirmed",
+    bookingId: bookingId
+  });
+  app.post('/api/checkin', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Check-in completed",
+    bookingId
+  });
+});
+
+app.post('/api/checkout', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Check-out completed",
+    bookingId
+  });
+});
+
+app.post('/api/confirmCheckout', (req, res) => {
+  const { bookingId } = req.body;
+
+  res.json({
+    status: "success",
+    message: "Checkout confirmed",
+    bookingId
+  });
+});
+});

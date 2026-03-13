@@ -46,6 +46,10 @@ const collection = {
         '  pm.expect(d.user).to.not.have.property("password");',
         '  pm.environment.set("token", d.token);',    // บันทึก token → ใช้ใน Request 3–7
         '});',
+        'pm.test("user.id is a positive number", function() {',
+        '  const d = pm.response.json();',
+        '  pm.expect(d.user.id).to.be.a("number").and.above(0);',
+        
 
         'pm.test("Response time is less than 2000ms", function() {',
         '  pm.expect(pm.response.responseTime).to.be.below(2000);',
@@ -81,8 +85,8 @@ const collection = {
         body: {
           mode: 'raw',
           raw: JSON.stringify({
-            fullname: 'Surachai', email: 'Surachai@test.com',
-            phone: '0812345678', checkin: '2026-12-01', checkout: '2026-12-03',
+            fullname: 'Teetach', email: 'teetach.com',
+            phone: '065486658556', checkin: '2026-12-01', checkout: '2026-12-03',
             roomtype: 'standard', guests: 2
           })
         },
@@ -190,8 +194,8 @@ const collection = {
         body: {
           mode: 'raw',
           raw: JSON.stringify({
-            fullname: 'นักศึกษา ทดสอบ Newman (Updated)', email: 'newman-updated@test.com',
-            phone: '0898765432', checkin: '2026-12-01', checkout: '2026-12-05',
+            fullname: 'ธีธัช คัคคนัมพร', email: '68030125@kmitl.ac.th',
+            phone: '0971144072', checkin: '2026-12-01', checkout: '2026-12-05',
             roomtype: 'deluxe', guests: 3, comment: 'Updated by Newman test'
           })
         },
